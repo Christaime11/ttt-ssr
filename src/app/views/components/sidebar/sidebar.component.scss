@@ -1,0 +1,151 @@
+#sidebar {
+  width: 250px;
+  position: fixed;
+
+  a {
+    color: #f5f6f8;
+  }
+
+  a:hover {
+    text-decoration: none !important;
+  }
+
+  ul {
+    text-align: center;
+  }
+}
+
+#sidebar .sidebar-header {
+  padding: 0 20px;
+}
+
+#ttt-logo {
+  width: 150px;
+}
+
+#sidebar ul.components {
+  padding: 20px;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li > a.active,
+#sidebar ul li ul li > a.active {
+  color: #fff;
+  background: #ffffff24;
+}
+
+.uk-offcanvas-bar {
+  background: none;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.uk-offcanvas-bar a {
+  color: initial;
+}
+
+// ------------------------------------------------
+.profile-menu-wrapper {
+  flex-grow: 1;
+  display: flex;
+
+
+  .wrapper {
+    display: flex;
+    margin-top: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    transition: background .6s ease;
+    padding: 20px 20px 20px 20px;
+
+    a {
+      color: #fff;
+      height: 45px;
+      width: 100%;
+      line-height: 60px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-color: #f8f8f80f !important;
+    }
+
+  }
+
+  .icon:first-of-type, .icon:last-of-type {
+    position: relative;
+  }
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .uk-offcanvas-close {
+    display: none;
+  }
+
+  #sidebar {
+    min-width: 250px;
+    bottom: 0;
+    // width: 250px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width .1s ease, margin .1s ease-out;
+    z-index: 999;
+  }
+
+  .uk-offcanvas {
+    display: block;
+    position: initial;
+  }
+
+  .uk-offcanvas-bar {
+    position: initial;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    background: none;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+

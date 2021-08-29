@@ -1,0 +1,47 @@
+<table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="historique-table w-100 my-5 table table-striped table-bordered row-border hover">
+  <thead>
+  <tr>
+    <th scope="col">Lot</th>
+    <th scope="col">Date de gain</th>
+    <th scope="col">Statut</th>
+    <th scope="col">Date de retrait</th>
+    <th scope="col">Action</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of historique">
+
+    <td>
+      <span *ngIf="item.name_lot">{{item.name_lot}}</span>
+    </td>
+
+    <td>{{item.created_at | date: 'dd/MM/yyyy'}}</td>
+    <td>
+      <span class="text-secondary" *ngIf="!item.takenAt && !item.reclamation">Non Retiré</span>
+      <span class="text-warning" *ngIf="(item.reclamation && !item.takenAt)">En traitement <i class="fas fa-clock ml-2"></i></span>
+      <span class="text-success" *ngIf="item.takenAt">Envoyé <i class="fas fa-check ml-2"></i></span>
+    </td>
+    <td>
+      <span *ngIf="!item.takenAt">-</span>
+      <span *ngIf="item.takenAt">{{item.takenAt | date: 'dd/MM/yyyy'}}</span>
+    </td>
+    <td>
+      <!--
+           Non reçu
+           Non réclamé
+      -->
+      <a *ngIf="!item.reclamation" (click)="open(item)" class="btn btn-outline-primary">Reclamer</a>
+      <!--
+          Réclamé
+          Non reçu
+      -->
+      <span *ngIf="(item.reclamation && !item.takenAt)">-</span>
+      <!--
+          Réclamé
+          Reçu
+      -->
+      <span *ngIf="item.takenAt">-</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

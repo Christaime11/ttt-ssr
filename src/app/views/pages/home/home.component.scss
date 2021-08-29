@@ -1,0 +1,42 @@
+.home {
+  min-height: calc(100vh);
+  z-index: 10;
+  position: relative;
+}
+#revealed-section-placeholder {
+  height: 29px;
+  background: transparent;
+}
+.copyright {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  height: 30px;
+  width: calc(100% - 250px);
+}
+
+.title{
+    color: #683C11;
+    margin-top: 15px;
+    line-height: 1;
+}
+
+.btn-block{
+    display: block;
+    width: 200px;
+}
+
+.text-b-600 {
+  font-weight: 400 !important;
+}
+
+.countdown .counter {
+  height: 69px;
+  width: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 100% ;
+}

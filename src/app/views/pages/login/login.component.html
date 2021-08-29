@@ -1,0 +1,90 @@
+<div class="d-flex flex-wrap row vh-100 login-page">
+  <div class="d-none col-6 d-xl-block px-3 px-md-0 bg-img-login">
+    <!---->
+  </div>
+  <div class="form-container col-12 col-xl-6 p-0 py-lg-5">
+    <p class="text-center text-uppercase text-bold">Thé tip top</p>
+    <h1 class="text-center text-lobster mb-0 display-4">Identifiez-vous</h1>
+
+    <div class="auth-form-wrapper">
+
+      <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+        {{ errors?.email }}
+      </div>
+      <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+        {{ errors?.password }}
+      </div>
+      <div *ngIf="errors" class="alert alert-danger mt-3">
+        {{ errors }}
+      </div>
+
+      <form class="form-signin forms-sample" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email"
+                 formControlName="email"
+                 class="form-control"
+                 id="email"
+                 placeholder="Saisissez votre email">
+          <div *ngIf="isFormSubmitted && form.email.errors"
+               class="invalid-feedback"
+               [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}">
+            <span *ngIf="form.email.status">Champs invalide</span>
+            <span *ngIf="form.email.errors?.required"> | Requis</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password"
+                 formControlName="password"
+                 class="form-control"
+                 id="password"
+                 autocomplete="current-password"
+                 placeholder="Saisissez votre mot de passe">
+          <div *ngIf="isFormSubmitted && (form.password.errors?.required || form.password.invalid )"
+               class="invalid-feedback"
+               [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}">
+            Requis
+          </div>
+        </div>
+
+        <a routerLink="/reset-password" class="d-block mt-3 text-muted text-right">Mot de passe oublié ?</a>
+
+        <div class="mt-3">
+          <button type="submit" class="btn btn-lipton btn-block rounded text-bold py-3 mr-2 mb-2 mb-md-0">Se connecter</button>
+        </div>
+
+      </form>
+
+      <div class="col-12 p-0 d-flex align-content-center justify-content-center flex-wrap">
+        <div class="col-5 p-0 d-flex align-content-center justify-content-center">
+          <hr class="w-100 m-auto">
+        </div>
+        <div class="col-2 d-flex align-content-center justify-content-center">
+          <span class="text-center py-3 d-block m-auto">OU</span>
+        </div>
+        <div class="col-5 p-0 d-flex align-content-center justify-content-center">
+          <hr class="w-100 m-auto">
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <button type="button" (click)="loginWithGoogle()" class="login-rs google btn btn-white border w-50 py-3 mr-2 mb-2 mb-md-0">
+          <i class="fab fa-google mr-1"></i>
+          Google
+        </button>
+        <button type="button" (click)="loginWithFaceBook()" class="login-rs facebook btn btn-white border w-50 py-3 mb-2 mb-md-0">
+          <i class="fab fa-facebook mr-1"></i>
+          Facebook
+        </button>
+      </div>
+
+      <a routerLink="/register" class="d-block mt-3 text-muted text-right">Pas de compte ? <span class="text-lipton">S'inscrire</span></a>
+
+    </div>
+  </div>
+</div>
+
+

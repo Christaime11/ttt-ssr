@@ -1,0 +1,117 @@
+<div class="row gutters-sm">
+  <div class="col-md-12">
+    <div class="card bg-light">
+      <div class="card-body">
+        <div id="account">
+          <h6 class="text-uppercase">Modifer vos informations</h6>
+          <hr>
+          <form [formGroup]="modifierProfileForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <label for="name">Nom et Prénom</label>
+              <input formControlName="name"
+                     class="form-control"
+                     id="name"
+                     placeholder="Nom et Prénom"
+                     value="{{UserProfile?.name}}"
+                     type="text">
+              <div *ngIf="isFormSubmitted && form.name.errors"
+                   [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}"
+                   class="invalid-feedback">
+                <span *ngIf="form.name.status">Champs invalide</span>
+                <span *ngIf="form.name.errors?.required"> | Requis</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="telephone">Téléphone</label>
+              <input class="form-control"
+                     formControlName="telephone"
+                     id="telephone"
+                     placeholder="Téléphone"
+                     value="{{UserProfile?.telephone}}"
+                     type="text">
+              <div *ngIf="isFormSubmitted && form.telephone.errors"
+                   [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}"
+                   class="invalid-feedback">
+                <span *ngIf="form.telephone.status">Champs invalide</span>
+                <span *ngIf="form.telephone.errors?.required"> | Requis</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Adresse</label>
+              <input class="form-control"
+                     formControlName="address"
+                     placeholder="Adresse"
+                     value="{{UserProfile?.address}}"
+                     id="address"
+                     type="text">
+              <div *ngIf="isFormSubmitted && form.address.errors"
+                   [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}"
+                   class="invalid-feedback">
+                <span *ngIf="form.address.status">Champs invalide</span>
+                <span *ngIf="form.address.errors?.required"> | Requis</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="additional_address">Complément d'addresse</label>
+              <input class="form-control"
+                     formControlName="additional_address"
+                     placeholder="Complément d'addresse"
+                     value="{{UserProfile?.additional_address}}"
+                     id="additional_address"
+                     type="text">
+              <div *ngIf="isFormSubmitted && form.additional_address.errors"
+                   [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}"
+                   class="invalid-feedback">
+                <span *ngIf="form.additional_address.status">Champs invalide</span>
+                <span *ngIf="form.additional_address.errors?.required"> | Requis</span>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between">
+              <div class="w-47 form-group">
+                <label for="postal_code">Code postale</label>
+                <input class="form-control"
+                       placeholder="Code Postale"
+                       formControlName="postal_code"
+                       id="postal_code"
+                       value="{{UserProfile?.postal_code}}"
+                       type="text">
+                <div *ngIf="isFormSubmitted && form.postal_code.errors"
+                     [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}"
+                     class="invalid-feedback">
+                  <span *ngIf="form.postal_code.status">Champs invalide</span>
+                  <span *ngIf="form.postal_code.errors?.required"> | Requis</span>
+                </div>
+              </div>
+
+              <div class="w-47 form-group">
+                <label for="ville">Ville</label>
+                <input class="form-control"
+                       formControlName="ville"
+                       placeholder="Ville"
+                       value="{{UserProfile?.ville}}"
+                       id="ville"
+                       type="text">
+                <div *ngIf="isFormSubmitted && form.ville.errors"
+                     [ngStyle]="{'display': isFormSubmitted ? 'block' : 'none'}"
+                     class="invalid-feedback">
+                  <span *ngIf="form.ville.status">Champs invalide</span>
+                  <span *ngIf="form.ville.errors?.required"> | Requis</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary px-3 py-2" type="submit">Modifier</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

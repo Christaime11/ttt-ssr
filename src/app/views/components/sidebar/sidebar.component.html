@@ -1,0 +1,64 @@
+<nav class="bg-primary vh-100" id="sidebar" uk-offcanvas>
+  <div class="uk-offcanvas-bar px-2">
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <div class="sidebar-header d-flex justify-content-center align-items-center">
+      <a routerLink="/accueil"><img id="ttt-logo" src="../assets/images/logo-white.png"></a>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li>
+        <a routerLink="/accueil"
+           routerLinkActive="active">
+          Accueil
+        </a>
+      </li>
+      <li>
+        <a [className]="isSignedIn ? '' : 'text-muted'"
+           [ngbPopover]="isSignedIn ? '' : 'Veuillez vous identifier'"
+           placement="right"
+           routerLink="/play"
+           routerLinkActive="active">
+          Jouer
+        </a>
+      </li>
+      <li>
+        <a [className]="isSignedIn ? '' : 'text-muted'"
+           [ngbPopover]="isSignedIn ? '' : 'Veuillez vous identifier'"
+           placement="right"
+           routerLink="/profile"
+           routerLinkActive="active">
+          Profil
+        </a>
+      </li>
+      <li>
+        <a class="/profile"
+           routerLink="/about"
+           routerLinkActive="active">
+          A Propos
+        </a>
+      </li>
+    </ul>
+
+    <div class="profile-menu-wrapper">
+      <div class="wrapper">
+
+        <a *ngIf="!isSignedIn" class="btn btn-block btn-primary rounded mb-2" routerLink="/register">
+          S'inscrire
+          <i class="fas fa-user-plus ml-2"></i>
+        </a>
+
+        <a *ngIf="!isSignedIn" class="btn btn-block rounded btn-primary" routerLink="/login">
+          S'identifier
+          <i class="fas fa-sign-in-alt ml-2"></i>
+        </a>
+
+        <a (click)="onLogout($event)" *ngIf="isSignedIn"
+           class="btn btn-block rounded btn-primary">
+          Se déconnecter
+          <i class="fas fa-power-off ml-2"></i>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</nav>

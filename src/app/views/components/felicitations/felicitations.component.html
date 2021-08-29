@@ -1,0 +1,30 @@
+<div class="felicitation-popup card card-congratulations">
+  <ng-particles (particlesInit)="particlesInit($event)" [id]="id" [options]="particlesOptions"></ng-particles>
+
+  <div class="modal-body card-body text-center py-5">
+    <img alt="card-img-left" class="congratulations-img-left" src="assets/images/decore-left.png">
+    <img alt="card-img-right" class="congratulations-img-right" src="assets/images/decore-right.png">
+
+    <div class="avatar mb-4">
+      <div class="avatar-content">
+        <i class="fas fa-medal text-lipton"></i>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h1 class="my-3 text-lipton">Félicitations {{userName}},</h1>
+      <p class="text-center text-lipton h5 mb-4">Vous avez gagné <span class="text-underline">{{lotName}}</span></p>
+    </div>
+
+    <div class="col text-center mb-4">
+      <button (click)="activeModal.close('Close click')" class="btn btn-white border border-lipton text-chocolate btn-lg mx-1"
+              routerLink="profile/historique" type="button">Voir tous mes gains
+      </button>
+      <button (click)="activeModal.close('Close click')" class="btn btn-lipton btn-lg text-center mx-1" routerLink="/play">
+        Jouer encore
+      </button>
+    </div>
+
+  </div>
+</div>
+
