@@ -29,15 +29,17 @@ import {LoginComponent} from './views/pages/login/login.component';
 import {RegisterComponent} from './views/pages/register/register.component';
 import {PlayComponent} from './views/pages/play/play.component';
 import {AboutComponent} from './views/pages/about/about.component';
+
 import {SidebarComponent} from './views/components/sidebar/sidebar.component';
 import {BaseComponent} from './views/components/base/base.component';
+import {NotificationComponent} from './views/components/notification/notification.component';
+import {HowToPlayComponent} from './views/components/how-to-play/how-to-play.component';
+import {FelicitationsComponent} from './views/components/felicitations/felicitations.component';
+import {MyLoaderComponent} from './views/components/my-loader/my-loader.component';
+
 import {HistoriqueComponent} from './views/pages/profil/historique/historique.component';
 import {MesInformationsComponent} from './views/pages/profil/mes-informations/mes-informations.component';
-import {MyLoaderComponent} from './views/components/my-loader/my-loader.component';
-import {NotificationComponent} from './views/components/notification/notification.component';
-import {FelicitationsComponent} from './views/components/felicitations/felicitations.component';
 import {ErrorPageComponent} from './views/pages/error-page/error-page.component';
-import {HowToPlayComponent} from './views/components/how-to-play/how-to-play.component';
 import { ResetPasswordComponent } from './views/pages/reset-password/reset-password.component';
 
 const cookieConfig: NgcCookieConsentConfig = {
