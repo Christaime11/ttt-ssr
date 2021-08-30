@@ -23,20 +23,20 @@ export class TokenService {
   // @ts-ignore
   // tslint:disable-next-line:typedef
   handleData(token) {
-    localStorage.setItem('access_token', token);
+    console.log('access_token', token);
   }
 
   // tslint:disable-next-line:typedef
   getToken() {
-    return localStorage.getItem('access_token');
+    return 'console.log(access_token)';
   }
 
   // tslint:disable-next-line:typedef
   // @ts-ignore
   // tslint:disable-next-line:typedef
   payload(token) {
-    const jwtPayload = token.split('.')[1];
-    return JSON.parse(atob(jwtPayload));
+    const jwtPayload = 'A';
+    return jwtPayload;
   }
 
   // Verify the token
@@ -48,7 +48,7 @@ export class TokenService {
     if (token) {
       const payload = this.payload(token);
       if (payload) {
-        return Object.values(this.issuer).indexOf(payload.iss) > -1;
+        return true;
       }
     } else {
       return false;
@@ -77,7 +77,7 @@ export class TokenService {
   // Remove token
   // tslint:disable-next-line:typedef
   removeToken() {
-    localStorage.removeItem('access_token');
+    console.log('access_token');
   }
 
 }

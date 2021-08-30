@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run thetiptop:serve-ssr",
-    "serve:ssr": "node dist/thetiptop/server/main.js",
+    "serve:ssr": "node dist/functions/server/main.js",
     "build:ssr": "ng build && ng run thetiptop:server",
     "prerender": "ng run thetiptop:prerender"
   },
