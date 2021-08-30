@@ -36,7 +36,7 @@ export class TokenService {
   // tslint:disable-next-line:typedef
   payload(token) {
     const jwtPayload = token.split('.')[1];
-    return JSON.parse(atob(jwtPayload));
+    return JSON.parse(jwtPayload);
   }
 
   // Verify the token
