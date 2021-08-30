@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {NgcCookieConsentService} from 'ngx-cookieconsent';
 import {RouterOutlet} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
@@ -14,13 +15,21 @@ export class AppComponent implements OnInit, OnDestroy {
   description: any | string;
   title: any | string;
 
-  constructor(private ccService: NgcCookieConsentService,
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,
+              private ccService: NgcCookieConsentService,
               private metaTagService: Meta,
               private canonicalService: CanonicalService,
               public http: HttpClient) {
   }
 
   ngOnInit(): void {
+
+    // Client only code.
+    if (isPlatformBrowser(this.platformId)) {
+      const item = {key1: 'value1', key2: 'valu2' };
+      localStorage.setItem('itemIndex', JSON.stringify(item) );
+    }
+
     // SEO
     this.metaTagService.addTags([
       {name: 'keywords', content: 'Jeu concours, jeu, thé, ThéTipTop'},
