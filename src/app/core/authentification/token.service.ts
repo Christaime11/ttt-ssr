@@ -23,12 +23,12 @@ export class TokenService {
   // @ts-ignore
   // tslint:disable-next-line:typedef
   handleData(token) {
-    localStorage.setItem('access_token', token);
+    console.log('access_token', token);
   }
 
   // tslint:disable-next-line:typedef
   getToken() {
-    return localStorage.getItem('access_token');
+    return 'console.log(access_token)';
   }
 
   // tslint:disable-next-line:typedef
